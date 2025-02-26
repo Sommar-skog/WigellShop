@@ -1,49 +1,52 @@
 package org.example.model.businessobject.product;
 
 import org.example.model.businessobject.Businessobjekt;
+import org.example.model.businessobject.product.enums.ClothingColor;
+import org.example.model.businessobject.product.enums.ClothingMaterial;
+import org.example.model.businessobject.product.enums.ClothingSize;
 
 public abstract class Product extends Businessobjekt {
-    private Size size;
-    private Color color;
-    private Material material;
+    private ClothingSize clothingSize;
+    private ClothingColor clothingColor;
+    private ClothingMaterial clothingMaterial;
 
-    public Product(String name, Size size, Color color, Material material) {
+    public Product(String name, ClothingSize clothingSize, ClothingColor clothingColor, ClothingMaterial clothingMaterial) {
         super(name);
-        this.size = size;
-        this.color = color;
-        this.material = material;
+        this.clothingSize = clothingSize;
+        this.clothingColor = clothingColor;
+        this.clothingMaterial = clothingMaterial;
     }
 
-    public Size getSize() {
-        return size;
+    public ClothingSize getSize() {
+        return clothingSize;
     }
 
-    public void setSize(Size size) {
-        this.size = size;
+    public void setSize(ClothingSize clothingSize) {
+        this.clothingSize = clothingSize;
     }
 
-    public Color getColor() {
-        return color;
+    public ClothingColor getColor() {
+        return clothingColor;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
+    public void setColor(ClothingColor clothingColor) {
+        this.clothingColor = clothingColor;
     }
 
-    public Material getMaterial() {
-        return material;
+    public ClothingMaterial getMaterial() {
+        return clothingMaterial;
     }
 
-    public void setMaterial(Material material) {
-        this.material = material;
+    public void setMaterial(ClothingMaterial clothingMaterial) {
+        this.clothingMaterial = clothingMaterial;
     }
 
     @Override
     public String toString() {
         return "Product{" +
-                "size=" + size +
-                ", color=" + color +
-                ", material=" + material +
+                "clothingSize=" + clothingSize +
+                ", clothingColor=" + clothingColor +
+                ", clothingMaterial=" + clothingMaterial +
                 "} " + super.toString();
     }
 }
