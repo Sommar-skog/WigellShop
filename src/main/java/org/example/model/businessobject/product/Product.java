@@ -15,13 +15,6 @@ public abstract class Product extends Businessobjekt {
         super();
     }
 
-    public Product(String name, ClothingSize clothingSize, ClothingColor clothingColor, ClothingMaterial clothingMaterial) {
-        super(name);
-        this.clothingSize = clothingSize;
-        this.clothingColor = clothingColor;
-        this.clothingMaterial = clothingMaterial;
-    }
-
     public ClothingSize getSize() {
         return clothingSize;
     }

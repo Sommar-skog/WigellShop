@@ -1,4 +1,14 @@
 package org.example.model.businessobject.product.builder;
 
-public class PantsBuilder {
+import org.example.model.businessobject.product.Pants;
+import org.example.model.businessobject.product.Product;
+
+
+public class PantsBuilder extends ProductBuilder {
+
+
+    @Override
+    public Product createProduct() {
+        return new Pants();
+    }
 }

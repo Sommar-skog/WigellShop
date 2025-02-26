@@ -12,14 +12,6 @@ public class Pants extends Product{
         this.price = 899.90;
     }
 
-    public Pants(String name, ClothingSize clothingSize, ClothingColor clothingColor, ClothingMaterial clothingMaterial, PantsFit fit, PantsLength length) {
-        super(name, clothingSize, clothingColor, clothingMaterial);
-        this.fit = fit;
-        this.length = length;
-        this.price = 899.90;
-    }
-
-
     @Override
     public void setId() {
 

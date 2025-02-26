@@ -2,18 +2,14 @@ package org.example.model.businessobject;
 
 public abstract class Businessobjekt {
 
-    private int id;
+    private Long id;
     private String name;
 
     public Businessobjekt() {
-        setId();
-    }
-    public Businessobjekt(String name) {
-        this.name = name;
-        setId();
+        id = Id.getInstance.setNextId();
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
