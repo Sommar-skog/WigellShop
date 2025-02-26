@@ -1,4 +1,6 @@
 package org.example.model.product;
 
-public abstract class Product {
+import org.example.model.businessobject.Businessobjekt;
+
+public abstract class Product extends Businessobjekt {
 }
