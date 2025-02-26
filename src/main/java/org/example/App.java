@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.model.businessobject.product.Pants;
+
 /**
  * Hello world!
  *

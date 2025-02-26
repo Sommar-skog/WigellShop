@@ -9,6 +9,11 @@ public abstract class Product extends Businessobjekt {
     private ClothingSize clothingSize;
     private ClothingColor clothingColor;
     private ClothingMaterial clothingMaterial;
+    protected double price;
+
+    public Product() {
+        super();
+    }
 
     public Product(String name, ClothingSize clothingSize, ClothingColor clothingColor, ClothingMaterial clothingMaterial) {
         super(name);
@@ -41,12 +46,21 @@ public abstract class Product extends Businessobjekt {
         this.clothingMaterial = clothingMaterial;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "clothingSize=" + clothingSize +
                 ", clothingColor=" + clothingColor +
                 ", clothingMaterial=" + clothingMaterial +
+                ", price=" + price +
                 "} " + super.toString();
     }
 }

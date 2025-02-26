@@ -6,7 +6,7 @@ public abstract class Businessobjekt {
     private String name;
 
     public Businessobjekt() {
-
+        setId();
     }
     public Businessobjekt(String name) {
         this.name = name;
