@@ -1,5 +1,12 @@
 package org.example.model.businessobject;
 
-public class CEO extends Businessobjekt {
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
+public class CEO extends Businessobjekt implements PropertyChangeListener {
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
+    }
 }
