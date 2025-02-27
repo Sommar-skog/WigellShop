@@ -12,11 +12,6 @@ public class Pants extends Product{
         this.price = 899.90;
     }
 
-    @Override
-    public void setId() {
-
-    }
-
     public PantsFit getFit() {
         return fit;
     }
@@ -36,8 +31,9 @@ public class Pants extends Product{
     @Override
     public String toString() {
         return "Pants{" +
-                "fit=" + fit +
+                "price=" + price +
                 ", length=" + length +
+                ", fit=" + fit +
                 "} " + super.toString();
     }
 }

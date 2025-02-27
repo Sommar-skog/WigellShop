@@ -13,11 +13,6 @@ public class TShirt extends Product {
         this.price = 499.90;
     }
 
-    @Override
-    public void setId() {
-
-    }
-
     public TShirtSleeves getSleeves() {
         return sleeves;
     }

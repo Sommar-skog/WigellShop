@@ -16,8 +16,4 @@ public class Receipt extends Businessobjekt {
         this.date = new Date();
     }
 
-    @Override
-    public void setId() {
-
-    }
 }

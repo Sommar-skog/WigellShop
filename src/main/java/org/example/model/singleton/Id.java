@@ -1,7 +1,7 @@
 package org.example.model.singleton;
 
 import org.example.model.businessobject.*;
-import org.example.model.product.Product;
+import org.example.model.businessobject.product.Product;
 
 public class Id {
     //TODO Ska klassen göras trådsäker? i så fall syncronized och volotile
@@ -26,16 +26,16 @@ public class Id {
     }
 
     public long getNextId (Businessobjekt businessobjekt) {
-        if (businessobjekt instanceof Customer) {
-            return CustomerId++;
-        } else if (businessobjekt instanceof Product){
-            return ProductId++;
+        if (businessobjekt instanceof Product) {
+            return ++CustomerId;
+        } else if (businessobjekt instanceof Customer){
+            return ++ProductId;
         } else if (businessobjekt instanceof Order){
-            return OrderId++;
+            return ++OrderId;
         } else if (businessobjekt instanceof Receipt){
-            return ReceiptId++;
+            return ++ReceiptId;
         } else if (businessobjekt instanceof CEO){
-            return CEOId++;
+            return ++CEOId;
         } else {
             throw new UnsupportedOperationException("ID generation not supported for: " + businessobjekt.getClass().getSimpleName());
         }

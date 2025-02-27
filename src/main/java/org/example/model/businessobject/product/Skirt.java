@@ -13,11 +13,6 @@ public class Skirt extends Product{
         this.price = 649.99;
     }
 
-    @Override
-    public void setId() {
-
-    }
-
     public SkirtWaistline getWaistline() {
         return waistline;
     }

@@ -18,8 +18,4 @@ public class Order extends Businessobjekt {
         productList.add(product);
     }
 
-    @Override
-    public void setId() {
-
-    }
 }

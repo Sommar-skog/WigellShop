@@ -5,6 +5,7 @@ import org.example.model.businessobject.product.Product;
 import org.example.model.businessobject.product.enums.ClothingColor;
 import org.example.model.businessobject.product.enums.ClothingMaterial;
 import org.example.model.businessobject.product.enums.ClothingSize;
+import org.example.model.singleton.Id;
 
 
 
@@ -54,6 +55,13 @@ public abstract class ProductBuilder {
         if (product.getColor() == null) {
             throw new IllegalArgumentException("Color was never set. Use addColor() before build()");
         }
-        return product;
+
+        //Är detta verkligen en rimlig lösning för att få unika ID?
+        Product newProduct = createProduct();
+        newProduct.setColor(product.getColor());
+        newProduct.setSize(product.getSize());
+        newProduct.setMaterial(product.getMaterial());
+        newProduct.setId(Id.getInstance().getNextId(newProduct));
+        return newProduct;
     }
 }
