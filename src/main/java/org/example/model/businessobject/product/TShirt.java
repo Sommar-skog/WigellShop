@@ -11,6 +11,7 @@ public class TShirt extends Product {
     public TShirt() {
         super();
         this.price = 499.90;
+        this.name = "T-Shirt";
     }
 
     public TShirtSleeves getSleeves() {

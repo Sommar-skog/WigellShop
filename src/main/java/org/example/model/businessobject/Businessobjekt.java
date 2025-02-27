@@ -5,7 +5,7 @@ import org.example.model.singleton.Id;
 public abstract class Businessobjekt {
 
     private Long id;
-    private String name;
+    protected String name;
 
     public Businessobjekt() {
         //id = Id.getInstance().getNextId(this);

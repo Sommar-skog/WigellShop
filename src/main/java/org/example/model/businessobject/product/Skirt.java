@@ -11,6 +11,7 @@ public class Skirt extends Product{
     public Skirt() {
         super();
         this.price = 649.99;
+        this.name = "Skirt";
     }
 
     public SkirtWaistline getWaistline() {

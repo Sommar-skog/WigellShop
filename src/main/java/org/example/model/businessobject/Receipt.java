@@ -16,4 +16,28 @@ public class Receipt extends Businessobjekt {
         this.date = new Date();
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "name='" + name + '\'' +
+                ", productList=" + productList +
+                ", date=" + date +
+                "} " + super.toString();
+    }
 }

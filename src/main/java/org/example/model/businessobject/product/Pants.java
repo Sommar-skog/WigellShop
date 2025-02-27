@@ -10,6 +10,7 @@ public class Pants extends Product{
     public Pants() {
         super();
         this.price = 899.90;
+        this.name = "Pants";
     }
 
     public PantsFit getFit() {
