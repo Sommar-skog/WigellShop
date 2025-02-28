@@ -56,12 +56,7 @@ public abstract class ProductBuilder {
             throw new IllegalArgumentException("Color was never set. Use addColor() before build()");
         }
 
-        //Är detta verkligen en rimlig lösning för att få unika ID?
-        Product newProduct = createProduct();
-        newProduct.setColor(product.getColor());
-        newProduct.setSize(product.getSize());
-        newProduct.setMaterial(product.getMaterial());
-        newProduct.setId(Id.getInstance().getNextId(newProduct));
-        return newProduct;
+        return product;
+
     }
 }

@@ -31,10 +31,9 @@ public class Pants extends Product{
 
     @Override
     public String toString() {
-        return "Pants{" +
-                "price=" + price +
-                ", length=" + length +
-                ", fit=" + fit +
-                "} " + super.toString();
+        return "Pants{ID: " + getId() + ", Name: "+ getName()
+                + ", Size: " + getSize() + ", Color: "+ getColor()
+                + ", Material: " + getMaterial() + ", Length: "+ getLength() + ", Fit: "
+                + getFit() + ", Price: " + getPrice() + "}";
     }
 }

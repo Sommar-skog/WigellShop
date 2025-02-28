@@ -8,7 +8,7 @@ public abstract class Businessobjekt {
     protected String name;
 
     public Businessobjekt() {
-        //id = Id.getInstance().getNextId(this);
+        id = Id.getInstance().getNextId(this);
         //System.out.println("ID är" + id); //debug
     }
 
