@@ -1,4 +1,23 @@
 package org.example.model.businessobject.product.command;
 
-public class NeckCommand {
+import org.example.model.businessobject.product.Product;
+import org.example.model.businessobject.product.TShirt;
+import org.example.model.businessobject.product.enums.ProductSpecification;
+import org.example.model.businessobject.product.enums.TShirtNeck;
+
+public class NeckCommand implements SewingProcessingCommand{
+    @Override
+    public Product process(Product product, ProductSpecification productSpecification) {
+        if (product instanceof TShirt) {
+            if (productSpecification instanceof TShirtNeck){
+                ((TShirt)product).setNeck((TShirtNeck)productSpecification);
+            } else{
+                throw new IllegalArgumentException("The product specification is not TShirtNeck");
+            }
+        } else {
+            throw new IllegalArgumentException("The product is not TShirt");
+        }
+
+        return product;
+    }
 }

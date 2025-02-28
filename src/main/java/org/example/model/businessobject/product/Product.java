@@ -60,6 +60,22 @@ public abstract class Product extends Businessobjekt {
         this.price = price;
     }
 
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return propertyChangeSupport;
+    }
+
+    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+        this.propertyChangeSupport = propertyChangeSupport;
+    }
+
+    public CEO getCeo() {
+        return ceo;
+    }
+
+    public void setCeo(CEO ceo) {
+        this.ceo = ceo;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
