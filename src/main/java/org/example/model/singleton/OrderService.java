@@ -24,4 +24,8 @@ public class OrderService {
     public void addItemToOrderList(OrderItem item) {
         ITEMS_TO_ORDER.add(item);
     }
+
+    public List<OrderItem> getItemsToOrderList() {
+        return ITEMS_TO_ORDER;
+    }
 }

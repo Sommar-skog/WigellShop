@@ -1,21 +1,29 @@
 package org.example.controller;
 
-import com.sun.org.apache.bcel.internal.generic.ANEWARRAY;
+
+import org.example.model.businessobject.order.OrderItem;
+import org.example.model.businessobject.product.Pants;
+import org.example.model.businessobject.product.Product;
+import org.example.model.businessobject.product.Skirt;
+import org.example.model.businessobject.product.TShirt;
 import org.example.model.businessobject.product.enums.*;
+import org.example.model.singleton.OrderService;
 import org.example.view.MenuView;
 import org.example.view.OrderView;
 import org.example.view.ProductView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OrderController {
 
     private final ProductView PRODUCT_VIEW = new ProductView();
     private final OrderView ORDER_VIEW = new OrderView();
     private final MenuView MENU_VIEW = new MenuView();
-    private List<String> productsToOrder = new ArrayList<>();
-    private List<ProductSpecification> = new ArrayList<>();
+
+
 
     public void order(){
         System.out.println("Order");
@@ -32,7 +40,6 @@ public class OrderController {
                     ProductSpecification pantsColor = PRODUCT_VIEW.printProductOptionsMenu(ClothingColor.values());
                     ProductSpecification fit = PRODUCT_VIEW.printProductOptionsMenu(PantsFit.values());
                     ProductSpecification length = PRODUCT_VIEW.printProductOptionsMenu(PantsLength.values());
-                    PRODUCT_VIEW.printProductOverViewBeforeProduction("Pants", pantsSize.toString(), pantsMaterial.toString(), pantsColor.toString(), fit.toString(), length.toString());
                     holdProductUntilOrder("Pants",pantsSize, pantsMaterial, pantsColor, fit, length);
                     break;
                 case 2:
@@ -42,7 +49,7 @@ public class OrderController {
                     ProductSpecification tShirtColor = PRODUCT_VIEW.printProductOptionsMenu(ClothingColor.values());
                     ProductSpecification sleeves = PRODUCT_VIEW.printProductOptionsMenu(TShirtSleeves.values());
                     ProductSpecification neck = PRODUCT_VIEW.printProductOptionsMenu(TShirtNeck.values());
-                    PRODUCT_VIEW.printProductOverViewBeforeProduction("T-shirt", tShirtSize.toString(), tShirtMaterial.toString(), tShirtColor.toString(), sleeves.toString(), neck.toString());
+                    holdProductUntilOrder("TShirt", tShirtSize, tShirtMaterial, tShirtColor, sleeves, neck);
                     break;
                 case 3:
                     // skirt
@@ -51,7 +58,7 @@ public class OrderController {
                     ProductSpecification skirtColor = PRODUCT_VIEW.printProductOptionsMenu(ClothingColor.values());
                     ProductSpecification waistline = PRODUCT_VIEW.printProductOptionsMenu(SkirtWaistline.values());
                     ProductSpecification pattern = PRODUCT_VIEW.printProductOptionsMenu(SkirtPattern.values());
-                    PRODUCT_VIEW.printProductOverViewBeforeProduction("Skirt", skirtSize.toString(), skirtMaterial.toString(), skirtColor.toString(), waistline.toString(), pattern.toString());
+                    holdProductUntilOrder("Skirt", skirtSize, skirtMaterial, skirtColor, waistline, pattern);
                     break;
             }
 
@@ -61,19 +68,35 @@ public class OrderController {
                 readyForProduction = true;
             }
         }
+        PRODUCT_VIEW.printProductOverViewBeforeProduction(OrderService.getInstance().getItemsToOrderList());
+    }
 
+    public void PlaceOrder(List<OrderItem> orderItems){
+        Map<String, Product> productMap = new HashMap<>();
+        for (OrderItem orderItem : orderItems) {
+           if (orderItem.getProductType().equals("Pants")){
+
+            } else if (orderItem.getProductType().equals("TShirt")){
+
+           } else if (orderItem.getProductType().equals("Skirt")){
+
+           }
+        }
 
     }
 
     public void holdProductUntilOrder(String type ,ProductSpecification size, ProductSpecification material, ProductSpecification color, ProductSpecification customOption1, ProductSpecification customOption2 ){
-            StringBuilder productPlacementUntilOrder = new StringBuilder();
-            productPlacementUntilOrder.append(type + ",").append(size + ",").append(material + ",").append(color + ",").append(customOption1 + ",").append(customOption2 + ",");
-            productsToOrder.add(productPlacementUntilOrder.toString());
+        List<ProductSpecification> specificationList = new ArrayList<>();
+        specificationList.add(size);
+        specificationList.add(material);
+        specificationList.add(color);
+        specificationList.add(customOption1);
+        specificationList.add(customOption2);
+
+        OrderItem orderItem = new OrderItem(type,specificationList);
+        OrderService.getInstance().addItemToOrderList(orderItem);
     }
 
-    public void addProductsToOrder(ProductSpecification size, ProductSpecification material, ProductSpecification color, ProductSpecification customOption1, ProductSpecification customOption2 ){
 
-
-    }
 
 }

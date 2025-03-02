@@ -12,4 +12,8 @@ public class OrderView {
             System.out.println(product);
         }
     }
+
+    public void printPlacingOrderNow(){
+        System.out.println("Placing order now...");
+    }
 }

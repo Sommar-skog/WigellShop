@@ -1,6 +1,7 @@
 package org.example.view;
 
 
+import org.example.model.businessobject.order.OrderItem;
 import org.example.model.businessobject.product.enums.ClothingSize;
 import org.example.model.businessobject.product.enums.ProductSpecification;
 
@@ -12,16 +13,26 @@ import java.util.stream.Collectors;
 public class ProductView {
 
     private final Scanner INPUT = new Scanner(System.in);
+    private final OrderView ORDER_VIEW = new OrderView();
 
 
     public void printProduct(String product) { //skicka in .toString
         System.out.println(product);
     }
 
-    public void printProductOverViewBeforeProduction(String typeOfProduct, String size, String material, String color, String customOption1, String customOption2) {
+    public void printProductOverViewBeforeProduction(List<OrderItem> items) {
         System.out.println();
-        System.out.println("Overview of your chosen product: \n" +
-                typeOfProduct + "[" + size + ", " + material + ", " + color + ", " + customOption1 + ", " + customOption2 + "]");
+        System.out.println("Overview of your chosen products: ");
+        System.out.println();
+        for (OrderItem item : items) {
+            System.out.print(item.getProductType() + "[");
+            for (ProductSpecification ps : item.getSpecificationList()){
+                System.out.print(ps + ", ");
+            }
+            System.out.println("]");
+        }
+        System.out.println();
+        ORDER_VIEW.printPlacingOrderNow();
 
 
     }
@@ -30,13 +41,13 @@ public class ProductView {
         System.out.println();
         while (true) {
             System.out.print("Would you like to add one more product to your order before production? (Y/N): ");
-            if (INPUT.nextLine().toLowerCase().equals("y")) {
-                return true;
-            } else if (INPUT.nextLine().toLowerCase().equals("n")) {
+            String answer = INPUT.nextLine().toLowerCase().trim();
+            if (answer.equals("y")) {
                 return false;
+            } else if (answer.equals("n")) {
+                return true;
             } else {
-                INPUT.nextLine();
-                System.out.println("Please enter a valid option");
+                System.out.println("Please enter a valid option (Y/N)");
             }
         }
     }
