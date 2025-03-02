@@ -4,6 +4,7 @@ import org.example.model.businessobject.product.enums.ProductSpecification;
 
 import java.util.List;
 
+    // extendar inte BusniessObject då det bara är en hjälpklass för OrderService
 public class OrderItem {
     private String productType;
     private List<ProductSpecification> specificationList;
