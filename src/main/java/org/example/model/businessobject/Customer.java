@@ -1,5 +1,7 @@
 package org.example.model.businessobject;
 
+import org.example.model.businessobject.order.Order;
+
 public class Customer extends Businessobjekt {
 
     private String address;
@@ -21,12 +23,26 @@ public class Customer extends Businessobjekt {
         this.mail = mail;
     }
 
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public String getMail() {
+        return mail;
+    }
+    public Order getOrder() {
+        return order;
+    }
+
     @Override
     public String toString() {
-        return "Customer{" +
-                "address='" + address + '\'' +
-                ", mail='" + mail + '\'' +
-                "} " + super.toString();
+        return "Customer: \n"
+                + "ID: " + getId() + "\n"
+                + "Name: " + name + "\n"
+                + "Address: " + address + "\n"
+                + "Mail: " + mail + "\n";
     }
 }
 

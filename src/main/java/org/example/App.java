@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.controller.MainController;
 import org.example.model.businessobject.CEO;
 import org.example.model.businessobject.product.Pants;
 import org.example.model.businessobject.product.Skirt;
@@ -20,7 +21,7 @@ public class App
     {
 
 
-        PantsBuilder pantsBuilder = new PantsBuilder();
+       /* PantsBuilder pantsBuilder = new PantsBuilder();
         Pants pants = (Pants) pantsBuilder.addColor(ClothingColor.BLACK).addMaterial(ClothingMaterial.COTTON).addSize(ClothingSize.SMALL).build();
         System.out.println(pants);
 
@@ -60,9 +61,11 @@ public class App
         SewingProcessingPipeline pipeline4 = new SewingProcessingPipeline();
         pipeline4.addCommand(new SleevesCommand(), TShirtSleeves.SHORT);
         pipeline4.addCommand(new NeckCommand(), TShirtNeck.CREW_NECK);
-        pipeline4.execute(tShirt);
+        pipeline4.execute(tShirt);*/
 
 
+        MainController mc = new MainController();
+        mc.start();
 
     }
 }

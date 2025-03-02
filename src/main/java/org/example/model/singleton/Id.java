@@ -1,6 +1,7 @@
 package org.example.model.singleton;
 
 import org.example.model.businessobject.*;
+import org.example.model.businessobject.order.Order;
 import org.example.model.businessobject.product.Product;
 
 public class Id {

@@ -18,7 +18,10 @@ public class MenuView {
                     "2. Shop as an Existing Customer");
             System.out.print("Choose an option (1 or 2): ");
             try{
-                return INPUT.nextInt();
+                int result = INPUT.nextInt();
+                INPUT.nextLine();
+                System.out.println("Your choice: " + result);
+                return result;
             }catch(Exception e) {
                 INPUT.nextLine();
                 System.out.println("Please enter a valid option!");

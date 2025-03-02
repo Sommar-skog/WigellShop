@@ -1,5 +1,6 @@
-package org.example.model.businessobject;
+package org.example.model.businessobject.order;
 
+import org.example.model.businessobject.Businessobjekt;
 import org.example.model.businessobject.product.Product;
 
 import java.util.ArrayList;
