@@ -18,6 +18,6 @@ public class LengthCommand implements SewingProcessingCommand{
         } else {
             throw new IllegalArgumentException("The Product is not a Pants");
         }
-        return null;
+        return product;
     }
 }

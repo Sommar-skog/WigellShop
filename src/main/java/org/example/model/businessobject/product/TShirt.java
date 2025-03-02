@@ -12,6 +12,7 @@ public class TShirt extends Product {
         super();
         this.price = 499.90;
         this.name = "T-Shirt";
+        getPropertyChangeSupport().firePropertyChange("Start Production of new Product: " + name + ", Product ID: " + getId(), null, this);
     }
 
     public TShirtSleeves getSleeves() {
@@ -32,9 +33,9 @@ public class TShirt extends Product {
 
     @Override
     public String toString() {
-        return "TShirt{" +
-                "sleeves=" + sleeves +
-                ", neck=" + neck +
-                "} " + super.toString();
+        return "T-shirt {ID: " + getId() + ", Name: "+ getName()
+                + ", Size: " + getSize() + ", Color: "+ getColor()
+                + ", Material: " + getMaterial() + ", Sleeves: "+ sleeves + ", Neck: "
+                + neck + ", Price: " + getPrice() + "}";
     }
 }

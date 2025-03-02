@@ -12,6 +12,7 @@ public class Skirt extends Product{
         super();
         this.price = 649.99;
         this.name = "Skirt";
+        getPropertyChangeSupport().firePropertyChange("Start Production of new Product: " + name + ", Product ID: " + getId(), null, this);
     }
 
     public SkirtWaistline getWaistline() {
@@ -32,9 +33,9 @@ public class Skirt extends Product{
 
     @Override
     public String toString() {
-        return "Skirt{" +
-                "waistline=" + waistline +
-                ", pattern=" + pattern +
-                "} " + super.toString();
+        return "Skirt {ID: " + getId() + ", Name: "+ getName()
+                + ", Size: " + getSize() + ", Color: "+ getColor()
+                + ", Material: " + getMaterial() + ", Waistline: "+ waistline + ", Pattern: "
+                + pattern + ", Price: " + getPrice() + "}";
     }
 }

@@ -11,6 +11,7 @@ public class Pants extends Product{
         super();
         this.price = 899.90;
         this.name = "Pants";
+        getPropertyChangeSupport().firePropertyChange("Start Production of new Product: " + name + ", Product ID: " + getId(), null, this);
     }
 
     public PantsFit getFit() {
@@ -31,9 +32,9 @@ public class Pants extends Product{
 
     @Override
     public String toString() {
-        return "Pants{ID: " + getId() + ", Name: "+ getName()
+        return "Pants {ID: " + getId() + ", Name: "+ getName()
                 + ", Size: " + getSize() + ", Color: "+ getColor()
-                + ", Material: " + getMaterial() + ", Length: "+ getLength() + ", Fit: "
-                + getFit() + ", Price: " + getPrice() + "}";
+                + ", Material: " + getMaterial() + ", Length: "+ length + ", Fit: "
+                + fit + ", Price: " + getPrice() + "}";
     }
 }

@@ -15,13 +15,14 @@ public abstract class Product extends Businessobjekt {
     private ClothingMaterial clothingMaterial;
     protected double price;
     private PropertyChangeSupport propertyChangeSupport;
-    private CEO ceo = new CEO("Wigell");
+    private CEO ceo = CEO.getInstance();
 
     public Product() {
         super();
         this.propertyChangeSupport = new PropertyChangeSupport(this);
         addPropertyChangeListener(ceo);
-        this.propertyChangeSupport.firePropertyChange("Start Production of new Product",null,this);
+        //Läger i product så att name kan skickas med.
+        //this.propertyChangeSupport.firePropertyChange("Start Production of new Product: Product ID: " + this.getId() ,null,this);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
