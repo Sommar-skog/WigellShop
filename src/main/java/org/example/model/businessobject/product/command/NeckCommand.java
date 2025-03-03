@@ -11,6 +11,7 @@ public class NeckCommand implements SewingProcessingCommand{
         if (product instanceof TShirt) {
             if (productSpecification instanceof TShirtNeck){
                 ((TShirt)product).setNeck((TShirtNeck)productSpecification);
+                System.out.println("The t-shirt is customized according to the desired neck.");
             } else{
                 throw new IllegalArgumentException("The product specification is not TShirtNeck");
             }

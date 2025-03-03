@@ -11,6 +11,7 @@ public class SleevesCommand implements SewingProcessingCommand{
         if (product instanceof TShirt){
             if (productSpecification instanceof TShirtSleeves){
                 ((TShirt)product).setSleeves((TShirtSleeves)productSpecification);
+                System.out.println("The t-shirt is customized according to the desired sleeves.");
             } else {
                 throw new IllegalArgumentException("Product specification is not TShirtSleeves");
             }

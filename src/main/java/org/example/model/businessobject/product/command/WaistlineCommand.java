@@ -11,6 +11,7 @@ public class WaistlineCommand implements SewingProcessingCommand{
         if (product instanceof Skirt){
             if (productSpecification instanceof SkirtWaistline){
                 ((Skirt)product).setWaistline((SkirtWaistline)productSpecification);
+                System.out.println("The skirt is customized according to the desired waistline.");
             } else {
                 throw new IllegalArgumentException("The product specification is not a skirt waistline");
             }

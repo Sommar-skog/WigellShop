@@ -14,6 +14,7 @@ public class FitCommand implements SewingProcessingCommand {
         if (product instanceof Pants) {
             if (productSpecification instanceof PantsFit) {
                 ((Pants) product).setFit((PantsFit) productSpecification);
+                System.out.println("The pants are customized according to the desired fit.");
             } else{
                 throw new IllegalArgumentException("The product specification is not a PantsFit");
             }

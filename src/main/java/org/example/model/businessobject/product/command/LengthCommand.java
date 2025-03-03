@@ -12,6 +12,7 @@ public class LengthCommand implements SewingProcessingCommand{
         if (product instanceof Pants){
             if ( productSpecification instanceof PantsLength){
                 ((Pants) product).setLength((PantsLength)productSpecification);
+                System.out.println("The pants are customized according to the desired length.");
             } else{
                 throw new IllegalArgumentException("Length command requires a PantsLength specification");
             }

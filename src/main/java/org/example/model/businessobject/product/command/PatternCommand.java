@@ -12,6 +12,7 @@ public class PatternCommand implements SewingProcessingCommand {
         if (product instanceof Skirt){
             if (productSpecification instanceof SkirtPattern){
                 ((Skirt)product).setPattern((SkirtPattern)productSpecification);
+                System.out.println("The skirt is customized according to the desired pattern.");
             } else {
                 throw new IllegalArgumentException("The product specification is not a SkirtPattern");
             }
