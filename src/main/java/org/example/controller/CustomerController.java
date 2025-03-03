@@ -9,6 +9,7 @@ import java.util.List;
 
 public class CustomerController {
 
+    //TODO fixa en hashMap som ska simulera databas med kunder. Så att nya kunder sparas dit och existerande kunder hämtas därifrån.
     private final CustomerView CUSTOMER_VIEW;
     private final MenuView MENU_VIEW;
 
