@@ -1,5 +1,6 @@
 package org.example.model.businessobject;
 
+import org.example.model.businessobject.order.Order;
 import org.example.model.businessobject.product.Product;
 
 import java.util.Date;
@@ -8,11 +9,14 @@ import java.util.List;
 public class Receipt extends Businessobjekt {
 
     private Date date;
-    private List<Product> productList;
+    private Order order;
+    private Customer customer;
 
-    public Receipt(String name, List<Product> productList) {
+
+    public Receipt(String name,Customer customer,Order order ) {
         super(name);
-        this.productList = productList;
+        this.customer = customer;
+        this.order = order;
         this.date = new Date();
     }
 
@@ -24,20 +28,19 @@ public class Receipt extends Businessobjekt {
         this.date = date;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    @Override
-    public String toString() {
-        return "Receipt{" +
-                "name='" + name + '\'' +
-                ", productList=" + productList +
-                ", date=" + date +
-                "} " + super.toString();
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
