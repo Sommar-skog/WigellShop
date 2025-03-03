@@ -9,10 +9,17 @@ import java.util.List;
 
 public class CustomerController {
 
-    private final CustomerView CUSTOMER_VIEW = new CustomerView();
-    private final MenuView MENU_VIEW = new MenuView();
+    private final CustomerView CUSTOMER_VIEW;
+    private final MenuView MENU_VIEW;
 
+    private final MainController MAIN_CONTROLLER;
     private Customer customerShopping;
+
+    public CustomerController(MainController mainController) {
+        this.MAIN_CONTROLLER = mainController;
+        this.CUSTOMER_VIEW = new CustomerView();
+        this.MENU_VIEW = MAIN_CONTROLLER.getMENU_VIEW();
+    }
 
     public void customer(){
         System.out.println("Customer");
@@ -40,5 +47,10 @@ public class CustomerController {
             }
         }
         CUSTOMER_VIEW.printCustomerDetails("Selected Customer for Shopping",customerShopping.getId(),customerShopping.getName(), customerShopping.getAddress(), customerShopping.getMail());
+        MAIN_CONTROLLER.setCustomerShopping(customerShopping);
+    }
+
+    public CustomerView getCUSTOMER_VIEW() {
+        return CUSTOMER_VIEW;
     }
 }

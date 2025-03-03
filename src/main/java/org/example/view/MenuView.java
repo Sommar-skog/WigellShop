@@ -8,6 +8,7 @@ public class MenuView {
     private final Scanner INPUT = new Scanner(System.in);
 
     public void printWelcomeMessage() {
+        System.out.println();
         System.out.println("           - - - WELCOME TO WIGELL SHOP - - -");
     }
 
@@ -66,4 +67,28 @@ public class MenuView {
         System.out.println("Your choice: " + choice);
         return choice;
     }
+
+    public boolean printExitQuestion(){
+        System.out.println();
+        boolean validChoice = false;
+        boolean result = false;
+        while (!validChoice) {
+            System.out.print("Would you like to start a new session or exit? (1) Start Over, (2) Exit Program: ");
+            try {
+                int choice = INPUT.nextInt();
+                if (choice == 1 || choice == 2) {
+                    if (choice == 2) {
+                        result = true;
+                    }
+                    validChoice = true;
+                } else {
+                    System.out.println("Please enter a valid option! (1 or 2)");
+                }
+            } catch (Exception e) {
+                System.out.println("Please enter a valid option (1 or 2)");
+            }
+        }
+        return result;
+    }
+
 }

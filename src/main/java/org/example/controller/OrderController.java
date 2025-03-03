@@ -23,10 +23,18 @@ import java.util.List;
 
 public class OrderController {
 
-    private final ProductView PRODUCT_VIEW = new ProductView();
-    private final OrderView ORDER_VIEW = new OrderView();
-    private final MenuView MENU_VIEW = new MenuView();
+    private final ProductView PRODUCT_VIEW;
+    private final OrderView ORDER_VIEW;
+    private final MenuView MENU_VIEW;
+    private final MainController MAIN_CONTROLLER;
     private  Order order;
+
+    public OrderController(MainController mainController) {
+        this.MAIN_CONTROLLER = mainController;
+        MENU_VIEW = mainController.getMENU_VIEW();
+        ORDER_VIEW = new OrderView();
+        PRODUCT_VIEW = mainController.getPRODUCT_CONTROLLER().getPRODUCT_VIEW();
+    }
 
 
     public void order(){
@@ -75,12 +83,13 @@ public class OrderController {
         PRODUCT_VIEW.printProductOverViewBeforeProduction(OrderService.getInstance().getItemsToOrderList());
 
         placeOrder(OrderService.getInstance().getItemsToOrderList());
+        ORDER_VIEW.printOrderReadyNow();
 
 
     }
 
     private void placeOrder(List<OrderItem> orderItems){
-        order = new Order("Order");
+        order = MAIN_CONTROLLER.getCurrentOrder();
         List<Product> orderList = order.getProductList();
 
         for (OrderItem orderItem : orderItems) {
@@ -136,6 +145,7 @@ public class OrderController {
         OrderService.getInstance().addItemToOrderList(orderItem);
     }
 
-
-
+    public OrderView getORDER_VIEW() {
+        return ORDER_VIEW;
+    }
 }
