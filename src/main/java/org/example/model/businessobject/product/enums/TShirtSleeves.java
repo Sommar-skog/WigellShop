@@ -1,6 +1,6 @@
 package org.example.model.businessobject.product.enums;
 
 public enum TShirtSleeves implements ProductSpecification{
-    LONG,
-    SHORT,
+    LONG_SLEEVES,
+    SHORT_SLEEVES,
 }

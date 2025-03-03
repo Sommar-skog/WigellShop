@@ -19,4 +19,11 @@ public class Order extends Businessobjekt {
         productList.add(product);
     }
 
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
 }

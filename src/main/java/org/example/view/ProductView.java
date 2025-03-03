@@ -56,7 +56,9 @@ public class ProductView {
     public ProductSpecification printProductOptionsMenu(ProductSpecification[] productSpecification) {
         List<String> options = convertEnumValuesToStringValues(productSpecification);
         int option;
-        while (true){
+        boolean validOption = false;
+        ProductSpecification productSpec = null;
+        while (!validOption) {
             System.out.println();
             System.out.println("Choose an option");
             int count = 1;
@@ -67,14 +69,20 @@ public class ProductView {
             System.out.print("Choose an option (integer): ");
             try {
                 option = INPUT.nextInt();
+                INPUT.nextLine();
                 if (option > 0 && option <= options.size()){
-                    return productSpecification[option - 1];
+                    validOption = true;
+                    productSpec = productSpecification[option - 1];
+                } else {
+                    System.out.println("Invalid choice, try again");
                 }
+
             } catch (Exception e) {
                 INPUT.nextLine();
                 System.out.println("Invalid input, try again");
             }
         }
+        return productSpec;
     }
 
     private List<String> convertEnumValuesToStringValues(ProductSpecification[] specifications) {

@@ -59,6 +59,8 @@ public class CustomerView {
             if (choice > 0 && choice <= customers.size()) {
                 found = true;
                 result = customers.get(choice - 1);
+            } else {
+                System.out.println("Invalid choice");
             }
         }
         return result;
