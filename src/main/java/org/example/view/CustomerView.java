@@ -8,6 +8,11 @@ public class CustomerView {
 
     private final Scanner INPUT = new Scanner(System.in);
 
+    public void printCustomerTitle() {
+        System.out.println("\n\n");
+        System.out.println("            - - - CUSTOMER - - -");
+    }
+
     public void printCustomerDetails(String title, long id, String name, String address, String mail) {
         System.out.println();
         System.out.println(title + "\nCustomer: \n"

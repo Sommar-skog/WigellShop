@@ -4,19 +4,19 @@ import org.example.view.CEOView;
 
 public class CEOController {
 
-    private final MainController MAIN_CONTROLLER;
-    private final CEOView CEOVIEW;
+    private final MainController mainController;
+    private final CEOView ceoView;
 
     public CEOController(MainController mainController) {
-        this.MAIN_CONTROLLER = mainController;
-        this.CEOVIEW = new CEOView();
+        this.mainController = mainController;
+        this.ceoView = new CEOView();
     }
 
-    public MainController getMAIN_CONTROLLER() {
-        return MAIN_CONTROLLER;
+    public MainController getMainController() {
+        return mainController;
     }
 
-    public CEOView getCEOVIEW() {
-        return CEOVIEW;
+    public CEOView getCeoView() {
+        return ceoView;
     }
 }

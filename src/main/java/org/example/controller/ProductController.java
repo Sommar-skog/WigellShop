@@ -8,12 +8,12 @@ import java.util.List;
 
 public class ProductController {
 
-    private final MainController MAIN_CONTROLLER;
-    private final ProductView PRODUCT_VIEW;
+    private final MainController mainController;
+    private final ProductView productView;
 
     public ProductController(MainController mainController) {
-        MAIN_CONTROLLER = mainController;
-        PRODUCT_VIEW = new ProductView();
+        this.mainController = mainController;
+        productView = new ProductView();
     }
 
     public List<String> getProductListAsString(List<Product> productList) {
@@ -24,7 +24,7 @@ public class ProductController {
         return productListAsString;
     }
 
-    public ProductView getPRODUCT_VIEW() {
-        return PRODUCT_VIEW;
+    public ProductView getProductView() {
+        return productView;
     }
 }

@@ -7,13 +7,13 @@ import org.example.view.*;
 
 public class MainController {
 
-    private final MenuView MENU_VIEW = new MenuView();
+    private final MenuView menuView = new MenuView();
 
-    private final CEOController CEO_CONTROLLER = new CEOController(this);
-    private final CustomerController CUSTOMER_CONTROLLER = new CustomerController(this);
-    private final ProductController PRODUCT_CONTROLLER = new ProductController(this);
-    private final OrderController ORDER_CONTROLLER = new OrderController(this);
-    private final ReceiptController RECEIPT_CONTROLLER = new ReceiptController(this);
+    private final CEOController ceoController = new CEOController(this);
+    private final CustomerController customerController = new CustomerController(this);
+    private final ProductController productController = new ProductController(this);
+    private final OrderController orderController = new OrderController(this);
+    private final ReceiptController receiptController = new ReceiptController(this);
 
     private Customer customerShopping;
     private Order currentOrder = new Order("Order");
@@ -29,40 +29,40 @@ public class MainController {
     private void mainAppLoo(){
 
         while(!exit){
-            MENU_VIEW.printWelcomeMessage();
-            CUSTOMER_CONTROLLER.customer();
-            ORDER_CONTROLLER.order();
-            RECEIPT_CONTROLLER.receipt();
+            menuView.printWelcomeMessage();
+            customerController.customer();
+            orderController.order();
+            receiptController.receipt();
             exitControl();
         }
     }
 
     private void exitControl(){
-        exit = MENU_VIEW.printExitQuestion();
+        exit = menuView.printExitQuestion();
     }
 
-    public MenuView getMENU_VIEW() {
-        return MENU_VIEW;
+    public MenuView getMenuView() {
+        return menuView;
     }
 
-    public CEOController getCEO_CONTROLLER() {
-        return CEO_CONTROLLER;
+    public CEOController getCeoController() {
+        return ceoController;
     }
 
-    public CustomerController getCUSTOMER_CONTROLLER() {
-        return CUSTOMER_CONTROLLER;
+    public CustomerController getCustomerController() {
+        return customerController;
     }
 
-    public ProductController getPRODUCT_CONTROLLER() {
-        return PRODUCT_CONTROLLER;
+    public ProductController getProductController() {
+        return productController;
     }
 
-    public OrderController getORDER_CONTROLLER() {
-        return ORDER_CONTROLLER;
+    public OrderController getOrderController() {
+        return orderController;
     }
 
-    public ReceiptController getRECEIPT_CONTROLLER() {
-        return RECEIPT_CONTROLLER;
+    public ReceiptController getReceiptController() {
+        return receiptController;
     }
 
     public Customer getCustomerShopping() {

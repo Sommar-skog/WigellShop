@@ -11,19 +11,19 @@ import java.util.List;
 
 public class ReceiptController {
 
-    private final ReceiptView RECEIPT_VIEW;
-    private final MainController MAIN_CONTROLLER;
-    private final CustomerView CUSTOMER_VIEW;
+    private final ReceiptView receiptView;
+    private final MainController mainController;
+    private final CustomerView customerView;
 
     public ReceiptController(MainController mainController) {
-        MAIN_CONTROLLER = mainController;
-        CUSTOMER_VIEW = mainController.getCUSTOMER_CONTROLLER().getCUSTOMER_VIEW();
-        RECEIPT_VIEW = new ReceiptView(CUSTOMER_VIEW);
+        this.mainController = mainController;
+        customerView = mainController.getCustomerController().getCustomerView();
+        receiptView = new ReceiptView(customerView);
     }
 
     public void receipt() {
-        Order currentOrder = MAIN_CONTROLLER.getCurrentOrder();
-        Customer currentCustomer = MAIN_CONTROLLER.getCustomerShopping();
+        Order currentOrder = mainController.getCurrentOrder();
+        Customer currentCustomer = mainController.getCustomerShopping();
         Receipt receipt = new Receipt("Receipt",currentCustomer,currentOrder);
 
         List<Product> productList = currentOrder.getProductList();
@@ -32,16 +32,16 @@ public class ReceiptController {
             totalPrice += product.getPrice();
         }
 
-        ProductController pc = MAIN_CONTROLLER.getPRODUCT_CONTROLLER();
+        ProductController pc = mainController.getProductController();
         List<String> productListAsString = pc.getProductListAsString(productList);
 
-        RECEIPT_VIEW.printReceiptTitle();
-        RECEIPT_VIEW.printReceipt(receipt.getId(), receipt.getName(), receipt.getDate(),currentOrder.getName(),currentOrder.getId(), productListAsString, totalPrice
+        receiptView.printReceiptTitle();
+        receiptView.printReceipt(receipt.getId(), receipt.getName(), receipt.getDate(),currentOrder.getName(),currentOrder.getId(), productListAsString, totalPrice
                 ,currentCustomer.getId(),currentCustomer.getName(), currentCustomer.getAddress(), currentCustomer.getMail());
 
     }
 
-    public ReceiptView getRECEIPT_VIEW() {
-        return RECEIPT_VIEW;
+    public ReceiptView getReceiptView() {
+        return receiptView;
     }
 }

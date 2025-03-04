@@ -23,17 +23,17 @@ import java.util.List;
 
 public class OrderController {
 
-    private final ProductView PRODUCT_VIEW;
-    private final OrderView ORDER_VIEW;
-    private final MenuView MENU_VIEW;
-    private final MainController MAIN_CONTROLLER;
+    private final ProductView productView;
+    private final OrderView orderView;
+    private final MenuView menuView;
+    private final MainController mainController;
     private  Order order;
 
     public OrderController(MainController mainController) {
-        this.MAIN_CONTROLLER = mainController;
-        MENU_VIEW = mainController.getMENU_VIEW();
-        ORDER_VIEW = new OrderView();
-        PRODUCT_VIEW = mainController.getPRODUCT_CONTROLLER().getPRODUCT_VIEW();
+        this.mainController = mainController;
+        menuView = mainController.getMenuView();
+        orderView = new OrderView();
+        productView = mainController.getProductController().getProductView();
     }
 
 
@@ -42,54 +42,54 @@ public class OrderController {
         System.out.println();
         boolean readyForProduction = false;
         while(!readyForProduction) {
-            int choice = MENU_VIEW.printProductChoice();
+            int choice = menuView.printProductChoice();
             boolean buyMore = false;
             switch (choice) {
                 case 1:
                     // Pants
-                    ProductSpecification pantsSize = PRODUCT_VIEW.printProductOptionsMenu(ClothingSize.values());
-                    ProductSpecification pantsMaterial = PRODUCT_VIEW.printProductOptionsMenu(ClothingMaterial.values());
-                    ProductSpecification pantsColor = PRODUCT_VIEW.printProductOptionsMenu(ClothingColor.values());
-                    ProductSpecification fit = PRODUCT_VIEW.printProductOptionsMenu(PantsFit.values());
-                    ProductSpecification length = PRODUCT_VIEW.printProductOptionsMenu(PantsLength.values());
+                    ProductSpecification pantsSize = productView.printProductOptionsMenu(ClothingSize.values());
+                    ProductSpecification pantsMaterial = productView.printProductOptionsMenu(ClothingMaterial.values());
+                    ProductSpecification pantsColor = productView.printProductOptionsMenu(ClothingColor.values());
+                    ProductSpecification fit = productView.printProductOptionsMenu(PantsFit.values());
+                    ProductSpecification length = productView.printProductOptionsMenu(PantsLength.values());
                     holdProductUntilOrder("Pants",pantsSize, pantsMaterial, pantsColor, fit, length);
                     break;
                 case 2:
                     // T-shirt
-                    ProductSpecification tShirtSize = PRODUCT_VIEW.printProductOptionsMenu(ClothingSize.values());
-                    ProductSpecification tShirtMaterial = PRODUCT_VIEW.printProductOptionsMenu(ClothingMaterial.values());
-                    ProductSpecification tShirtColor = PRODUCT_VIEW.printProductOptionsMenu(ClothingColor.values());
-                    ProductSpecification sleeves = PRODUCT_VIEW.printProductOptionsMenu(TShirtSleeves.values());
-                    ProductSpecification neck = PRODUCT_VIEW.printProductOptionsMenu(TShirtNeck.values());
+                    ProductSpecification tShirtSize = productView.printProductOptionsMenu(ClothingSize.values());
+                    ProductSpecification tShirtMaterial = productView.printProductOptionsMenu(ClothingMaterial.values());
+                    ProductSpecification tShirtColor = productView.printProductOptionsMenu(ClothingColor.values());
+                    ProductSpecification sleeves = productView.printProductOptionsMenu(TShirtSleeves.values());
+                    ProductSpecification neck = productView.printProductOptionsMenu(TShirtNeck.values());
                     holdProductUntilOrder("TShirt", tShirtSize, tShirtMaterial, tShirtColor, sleeves, neck);
                     break;
                 case 3:
                     // skirt
-                    ProductSpecification skirtSize = PRODUCT_VIEW.printProductOptionsMenu(ClothingSize.values());
-                    ProductSpecification skirtMaterial = PRODUCT_VIEW.printProductOptionsMenu(ClothingMaterial.values());
-                    ProductSpecification skirtColor = PRODUCT_VIEW.printProductOptionsMenu(ClothingColor.values());
-                    ProductSpecification waistline = PRODUCT_VIEW.printProductOptionsMenu(SkirtWaistline.values());
-                    ProductSpecification pattern = PRODUCT_VIEW.printProductOptionsMenu(SkirtPattern.values());
+                    ProductSpecification skirtSize = productView.printProductOptionsMenu(ClothingSize.values());
+                    ProductSpecification skirtMaterial = productView.printProductOptionsMenu(ClothingMaterial.values());
+                    ProductSpecification skirtColor = productView.printProductOptionsMenu(ClothingColor.values());
+                    ProductSpecification waistline = productView.printProductOptionsMenu(SkirtWaistline.values());
+                    ProductSpecification pattern = productView.printProductOptionsMenu(SkirtPattern.values());
                     holdProductUntilOrder("Skirt", skirtSize, skirtMaterial, skirtColor, waistline, pattern);
                     break;
             }
 
-            buyMore = PRODUCT_VIEW.printOrderMoreProductsQuestion();
+            buyMore = productView.printOrderMoreProductsQuestion();
 
             if (buyMore){
                 readyForProduction = true;
             }
         }
-        PRODUCT_VIEW.printProductOverViewBeforeProduction(OrderService.getInstance().getItemsToOrderList());
+        productView.printProductOverViewBeforeProduction(OrderService.getInstance().getItemsToOrderList());
 
         placeOrder(OrderService.getInstance().getItemsToOrderList());
-        ORDER_VIEW.printOrderReadyNow();
+        orderView.printOrderReadyNow();
 
 
     }
 
     private void placeOrder(List<OrderItem> orderItems){
-        order = MAIN_CONTROLLER.getCurrentOrder();
+        order = mainController.getCurrentOrder();
         List<Product> orderList = order.getProductList();
 
         for (OrderItem orderItem : orderItems) {
@@ -145,7 +145,7 @@ public class OrderController {
         OrderService.getInstance().addItemToOrderList(orderItem);
     }
 
-    public OrderView getORDER_VIEW() {
-        return ORDER_VIEW;
+    public OrderView getOrderView() {
+        return orderView;
     }
 }
