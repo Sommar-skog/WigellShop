@@ -57,6 +57,9 @@ public abstract class ProductBuilder {
         }
 
         return product;
+    }
 
+    public Product getProduct() { //Används vid testning
+        return product;
     }
 }
