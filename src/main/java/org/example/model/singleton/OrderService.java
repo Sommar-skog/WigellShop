@@ -7,12 +7,12 @@ import java.util.List;
 
 public class OrderService {
 
-    private final List<OrderItem> ITEMS_TO_ORDER;
+    private final List<OrderItem> itemsToOrder;
 
     private static OrderService instance;
 
     private OrderService() {
-        ITEMS_TO_ORDER = new ArrayList<>();
+        itemsToOrder = new ArrayList<>();
     }
     public static OrderService getInstance() {
         if (instance == null) {
@@ -22,10 +22,14 @@ public class OrderService {
     }
 
     public void addItemToOrderList(OrderItem item) {
-        ITEMS_TO_ORDER.add(item);
+        itemsToOrder.add(item);
+    }
+
+    public void removeAllItemsFromOrderList() {
+        itemsToOrder.clear();
     }
 
     public List<OrderItem> getItemsToOrderList() {
-        return ITEMS_TO_ORDER;
+        return itemsToOrder;
     }
 }

@@ -1,6 +1,5 @@
 package org.example.model.businessobject.product.command;
 
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.example.model.businessobject.product.Pants;
 import org.example.model.businessobject.product.Product;
 import org.example.model.businessobject.product.enums.PantsFit;

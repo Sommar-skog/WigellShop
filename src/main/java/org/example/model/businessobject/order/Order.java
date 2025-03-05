@@ -19,6 +19,10 @@ public class Order extends Businessobjekt {
         productList.add(product);
     }
 
+    public void removeProduct(Product product){
+        productList.remove(product);
+    }
+
     public List<Product> getProductList() {
         return productList;
     }

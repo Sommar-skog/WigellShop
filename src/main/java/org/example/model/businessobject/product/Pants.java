@@ -1,7 +1,6 @@
 package org.example.model.businessobject.product;
 
 import org.example.model.businessobject.product.enums.*;
-import org.example.model.observer.Notifier;
 
 public class Pants extends Product{
 

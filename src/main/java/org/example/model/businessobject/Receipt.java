@@ -12,8 +12,7 @@ public class Receipt extends Businessobjekt {
     private Order order;
     private Customer customer;
 
-
-    public Receipt(String name,Customer customer,Order order ) {
+    public Receipt(String name, Customer customer, Order order ) {
         super(name);
         this.customer = customer;
         this.order = order;

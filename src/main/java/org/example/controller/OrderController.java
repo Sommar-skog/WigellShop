@@ -83,6 +83,7 @@ public class OrderController {
         productView.printProductOverViewBeforeProduction(OrderService.getInstance().getItemsToOrderList());
 
         placeOrder(OrderService.getInstance().getItemsToOrderList());
+        OrderService.getInstance().removeAllItemsFromOrderList();
         orderView.printOrderReadyNow();
 
 
@@ -90,7 +91,6 @@ public class OrderController {
 
     private void placeOrder(List<OrderItem> orderItems){
         order = mainController.getCurrentOrder();
-        List<Product> orderList = order.getProductList();
 
         for (OrderItem orderItem : orderItems) {
             SewingProcessingPipeline pipeline = new SewingProcessingPipeline();
@@ -109,7 +109,7 @@ public class OrderController {
                     pipeline.addCommand(new FitCommand(), (PantsFit) customOption1);
                     pipeline.addCommand(new LengthCommand(), (PantsLength) customOption2);
                     pipeline.execute(p);
-                    orderList.add(p);
+                    order.addProduct(p);
                     break;
                 case "TShirt":
                     TShirtBuilder tb = new TShirtBuilder();
@@ -117,7 +117,7 @@ public class OrderController {
                     pipeline.addCommand(new SleevesCommand(), (TShirtSleeves) customOption1);
                     pipeline.addCommand(new NeckCommand(), (TShirtNeck) customOption2);
                     pipeline.execute(t);
-                    orderList.add(t);
+                    order.addProduct(t);
                     break;
                 case "Skirt":
                     SkirtBuilder sb = new SkirtBuilder();
@@ -125,7 +125,7 @@ public class OrderController {
                     pipeline.addCommand(new WaistlineCommand(), (SkirtWaistline) customOption1);
                     pipeline.addCommand(new PatternCommand(), (SkirtPattern) customOption2);
                     pipeline.execute(s);
-                    orderList.add(s);
+                    order.addProduct(s);
                     break;
             }
 

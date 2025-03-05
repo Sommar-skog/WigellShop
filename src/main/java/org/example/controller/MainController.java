@@ -11,14 +11,14 @@ public class MainController {
 
     private final MenuView menuView = new MenuView();
 
-    private final CEOController ceoController = new CEOController(this);
+    private final CEOController ceoController = new CEOController(this); // Ta bort?
     private final CustomerController customerController = new CustomerController(this);
     private final ProductController productController = new ProductController(this);
     private final OrderController orderController = new OrderController(this);
     private final ReceiptController receiptController = new ReceiptController(this);
 
     private Customer customerShopping;
-    private Order currentOrder = new Order("Order");
+    private Order currentOrder;
     private Notifier notifier;
     private boolean exit = false;
 
@@ -34,6 +34,7 @@ public class MainController {
         createNotifier();
 
         while(!exit){
+            currentOrder = new Order("Order");
             menuView.printWelcomeMessage();
             customerController.customer();
             orderController.order();
@@ -80,10 +81,4 @@ public class MainController {
     public Order getCurrentOrder() {
         return currentOrder;
     }
-
-    public void setCurrentOrder(Order currentOrder) {
-        this.currentOrder = currentOrder;
-    }
-
-
 }

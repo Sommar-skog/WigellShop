@@ -2,7 +2,6 @@ package org.example.model.businessobject.product.command;
 
 import org.example.model.businessobject.product.Pants;
 import org.example.model.businessobject.product.Product;
-import org.example.model.businessobject.product.enums.PantsFit;
 import org.example.model.businessobject.product.enums.PantsLength;
 import org.example.model.businessobject.product.enums.ProductSpecification;
 

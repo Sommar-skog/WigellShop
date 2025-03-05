@@ -27,7 +27,7 @@ public class ReceiptController {
         Receipt receipt = new Receipt("Receipt",currentCustomer,currentOrder);
 
         List<Product> productList = currentOrder.getProductList();
-        Double totalPrice = 0.0d;
+        double totalPrice = 0.0d;
         for (Product product : productList) {
             totalPrice += product.getPrice();
         }
@@ -39,9 +39,5 @@ public class ReceiptController {
         receiptView.printReceipt(receipt.getId(), receipt.getName(), receipt.getDate(),currentOrder.getName(),currentOrder.getId(), productListAsString, totalPrice
                 ,currentCustomer.getId(),currentCustomer.getName(), currentCustomer.getAddress(), currentCustomer.getMail());
 
-    }
-
-    public ReceiptView getReceiptView() {
-        return receiptView;
     }
 }

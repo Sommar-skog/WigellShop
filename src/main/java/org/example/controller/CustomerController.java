@@ -32,7 +32,8 @@ public class CustomerController {
 
         if(choice == 1){
             List<String> customerDetails = customerView.printAddNewCustomer();
-            customerShopping = new Customer(customerDetails.get(0),customerDetails.get(1),customerDetails.get(2) );
+            customerShopping = new Customer(customerDetails.get(0),customerDetails.get(1),customerDetails.get(2));
+            customerShopping.setOrder(mainController.getCurrentOrder());
             customerDb.put(customerShopping.getId(),customerShopping); //Lägger den nya kunden i databasen
 
         } else if (choice == 2) {

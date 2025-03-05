@@ -12,7 +12,6 @@ public class Customer extends Businessobjekt {
         super(name);
         this.address = address;
         this.mail = mail;
-        this.order = new Order("Order");
     }
 
     public void setAddress(String address) {
@@ -26,12 +25,15 @@ public class Customer extends Businessobjekt {
     public void setOrder(Order order) {
         this.order = order;
     }
+
     public String getAddress() {
         return address;
     }
+
     public String getMail() {
         return mail;
     }
+
     public Order getOrder() {
         return order;
     }

@@ -1,14 +1,10 @@
 package org.example.model.businessobject.product;
 
 import org.example.model.businessobject.Businessobjekt;
-import org.example.model.businessobject.CEO;
 import org.example.model.businessobject.product.enums.ClothingColor;
 import org.example.model.businessobject.product.enums.ClothingMaterial;
 import org.example.model.businessobject.product.enums.ClothingSize;
 import org.example.model.observer.Notifier;
-
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 
 public abstract class Product extends Businessobjekt {
     private ClothingSize clothingSize;
@@ -17,11 +13,9 @@ public abstract class Product extends Businessobjekt {
     protected double price;
     protected final Notifier notifier = Notifier.getInstance();
 
-
     public Product() {
         super();
     }
-
 
     public ClothingSize getSize() {
         return clothingSize;
