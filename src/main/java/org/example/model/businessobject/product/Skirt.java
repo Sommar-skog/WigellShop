@@ -12,7 +12,7 @@ public class Skirt extends Product{
         super();
         this.price = 649.99;
         this.name = "Skirt";
-        getPropertyChangeSupport().firePropertyChange("Start Production of new Product: " + name + ", Product ID: " + getId(), null, this);
+        notifier.notifyObservers("Start Production of new Product",name,getId(),null,this);
     }
 
     public SkirtWaistline getWaistline() {

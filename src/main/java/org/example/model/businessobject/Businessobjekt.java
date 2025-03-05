@@ -9,7 +9,6 @@ public abstract class Businessobjekt {
 
     public Businessobjekt() {
         id = Id.getInstance().getNextId(this);
-        //System.out.println("ID är" + id); //debug
     }
 
     public Businessobjekt(String name) {

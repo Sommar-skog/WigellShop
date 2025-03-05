@@ -1,7 +1,9 @@
 package org.example.controller;
 
+import org.example.model.businessobject.CEO;
 import org.example.model.businessobject.Customer;
 import org.example.model.businessobject.order.Order;
+import org.example.model.observer.Notifier;
 import org.example.view.*;
 
 
@@ -17,16 +19,19 @@ public class MainController {
 
     private Customer customerShopping;
     private Order currentOrder = new Order("Order");
+    private Notifier notifier;
     private boolean exit = false;
 
     public MainController() {
     }
 
     public void start(){
-        mainAppLoo();
+        mainAppLoop();
     }
 
-    private void mainAppLoo(){
+    private void mainAppLoop(){
+
+        createNotifier();
 
         while(!exit){
             menuView.printWelcomeMessage();
@@ -35,6 +40,17 @@ public class MainController {
             receiptController.receipt();
             exitControl();
         }
+    }
+
+    private void createNotifier(){
+        notifier = Notifier.getInstance();
+        addObserversToNotifier();
+
+    }
+
+    private void addObserversToNotifier(){
+        CEO ceo = CEO.getInstance();
+        notifier.addObserver(ceo);
     }
 
     private void exitControl(){
@@ -80,4 +96,10 @@ public class MainController {
     public void setCurrentOrder(Order currentOrder) {
         this.currentOrder = currentOrder;
     }
+
+    public Notifier getNotifier() {
+        return notifier;
+    }
+
+
 }

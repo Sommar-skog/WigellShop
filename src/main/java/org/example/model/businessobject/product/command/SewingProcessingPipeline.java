@@ -2,6 +2,7 @@ package org.example.model.businessobject.product.command;
 
 import org.example.model.businessobject.product.Product;
 import org.example.model.businessobject.product.enums.ProductSpecification;
+import org.example.model.observer.Notifier;
 
 
 import java.beans.PropertyChangeListener;
@@ -27,8 +28,8 @@ public class SewingProcessingPipeline {
         for (Map.Entry<SewingProcessingCommand, ProductSpecification> entry : pipeline.entrySet()) {
             result = entry.getKey().process(result, entry.getValue());
         }
-        result.getPropertyChangeSupport().firePropertyChange("Production of product finished: " + result.getName() + ", Product ID: " + result.getId(), null, result); //Null så att jag inte behöver skapa en ny product för att hålla de gamla värderna, eftersom då blir ID genereringen fel.
-        //result.getPropertyChangeSupport().firePropertyChange("Production of product finished: " +result.getName(),oldProduct,result);
+
+        result.getNotifier().notifyObservers("Production of product finished", result.getName(), result.getId(), null, result);
 
         return result;
     }

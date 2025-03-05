@@ -5,6 +5,7 @@ import org.example.model.businessobject.CEO;
 import org.example.model.businessobject.product.enums.ClothingColor;
 import org.example.model.businessobject.product.enums.ClothingMaterial;
 import org.example.model.businessobject.product.enums.ClothingSize;
+import org.example.model.observer.Notifier;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -14,20 +15,13 @@ public abstract class Product extends Businessobjekt {
     private ClothingColor clothingColor;
     private ClothingMaterial clothingMaterial;
     protected double price;
-    private PropertyChangeSupport propertyChangeSupport;
-    private CEO ceo = CEO.getInstance();
+    protected final Notifier notifier = Notifier.getInstance();
+
 
     public Product() {
         super();
-        this.propertyChangeSupport = new PropertyChangeSupport(this);
-        addPropertyChangeListener(ceo);
-        //Läger i product så att name kan skickas med.
-        //this.propertyChangeSupport.firePropertyChange("Start Production of new Product: Product ID: " + this.getId() ,null,this);
     }
 
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        propertyChangeSupport.addPropertyChangeListener(listener);
-    }
 
     public ClothingSize getSize() {
         return clothingSize;
@@ -61,20 +55,8 @@ public abstract class Product extends Businessobjekt {
         this.price = price;
     }
 
-    public PropertyChangeSupport getPropertyChangeSupport() {
-        return propertyChangeSupport;
-    }
-
-    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
-        this.propertyChangeSupport = propertyChangeSupport;
-    }
-
-    public CEO getCeo() {
-        return ceo;
-    }
-
-    public void setCeo(CEO ceo) {
-        this.ceo = ceo;
+    public Notifier getNotifier() {
+        return notifier;
     }
 
     @Override

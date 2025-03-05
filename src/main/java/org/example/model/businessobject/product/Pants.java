@@ -1,6 +1,7 @@
 package org.example.model.businessobject.product;
 
 import org.example.model.businessobject.product.enums.*;
+import org.example.model.observer.Notifier;
 
 public class Pants extends Product{
 
@@ -11,7 +12,7 @@ public class Pants extends Product{
         super();
         this.price = 899.90;
         this.name = "Pants";
-        getPropertyChangeSupport().firePropertyChange("Start Production of new Product: " + name + ", Product ID: " + getId(), null, this);
+        notifier.notifyObservers("Start Production of new Product", name,getId(),null,this);
     }
 
     public PantsFit getFit() {
