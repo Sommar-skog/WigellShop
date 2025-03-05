@@ -49,7 +49,7 @@ public class MainController {
     }
 
     private void addObserversToNotifier(){
-        CEO ceo = CEO.getInstance();
+        CEO ceo = new CEO("Wigell");
         notifier.addObserver(ceo);
     }
 
@@ -61,24 +61,12 @@ public class MainController {
         return menuView;
     }
 
-    public CEOController getCeoController() {
-        return ceoController;
-    }
-
     public CustomerController getCustomerController() {
         return customerController;
     }
 
     public ProductController getProductController() {
         return productController;
-    }
-
-    public OrderController getOrderController() {
-        return orderController;
-    }
-
-    public ReceiptController getReceiptController() {
-        return receiptController;
     }
 
     public Customer getCustomerShopping() {
@@ -95,10 +83,6 @@ public class MainController {
 
     public void setCurrentOrder(Order currentOrder) {
         this.currentOrder = currentOrder;
-    }
-
-    public Notifier getNotifier() {
-        return notifier;
     }
 
 

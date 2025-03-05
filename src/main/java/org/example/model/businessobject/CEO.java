@@ -5,17 +5,8 @@ import java.beans.PropertyChangeListener;
 
 public class CEO extends Businessobjekt implements PropertyChangeListener {
 
-    private static CEO instance;
-
-    private CEO() {
-        name = "Wigell";
-    }
-
-    public static CEO getInstance() {
-        if (instance == null) {
-            instance = new CEO();
-        }
-        return instance;
+    public CEO(String name) {
+        super(name);
     }
 
     @Override
