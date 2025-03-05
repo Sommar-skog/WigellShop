@@ -5,7 +5,7 @@ import org.example.model.businessobject.product.Product;
 import org.example.model.businessobject.product.enums.ClothingColor;
 import org.example.model.businessobject.product.enums.ClothingMaterial;
 import org.example.model.businessobject.product.enums.ClothingSize;
-import org.example.model.singleton.Id;
+
 
 
 
@@ -62,4 +62,5 @@ public abstract class ProductBuilder {
     public Product getProduct() { //Används vid testning
         return product;
     }
+
 }

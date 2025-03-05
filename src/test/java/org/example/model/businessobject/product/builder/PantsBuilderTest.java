@@ -2,6 +2,8 @@ package org.example.model.businessobject.product.builder;
 
 import org.example.model.businessobject.product.Pants;
 import org.example.model.businessobject.product.Product;
+import org.example.model.businessobject.product.Skirt;
+import org.example.model.businessobject.product.TShirt;
 import org.example.model.businessobject.product.enums.ClothingColor;
 import org.example.model.businessobject.product.enums.ClothingMaterial;
 import org.example.model.businessobject.product.enums.ClothingSize;
@@ -21,7 +23,7 @@ class PantsBuilderTest {
 
     @Test
     void addSizeShouldSetSizeWhenValidSizeProvided() {
-        ClothingSize size = ClothingSize.SMALL;
+        ClothingSize size = ClothingSize.MEDIUM;
         pantsBuilder.addSize(size);
         assertEquals(size, pantsBuilder.getProduct().getSize());
     }
@@ -90,20 +92,50 @@ class PantsBuilderTest {
 
     @Test
     void buildShouldTrowExceptionWhenAAddColorIsNotCalled() {
-
+        pantsBuilder.addSize(ClothingSize.SMALL);
+        pantsBuilder.addMaterial(ClothingMaterial.COTTON);
+        assertThrows(IllegalArgumentException.class, () -> pantsBuilder.build(), "Color was never set. Use addColor() before build()");
     }
 
     @Test
     void buildShouldTrowExceptionWhenAAddMaterialIsNotCalled() {
-
+        pantsBuilder.addSize(ClothingSize.SMALL);
+        pantsBuilder.addColor(ClothingColor.BLACK);
+        assertThrows(IllegalArgumentException.class, () -> pantsBuilder.build(), "Material was never set. Use addMaterial() before build()");
     }
 
     @Test
     void buildShouldTrowExceptionWhenAAddSizeIsNotCalled() {
-
+        pantsBuilder.addColor(ClothingColor.BLACK);
+        pantsBuilder.addMaterial(ClothingMaterial.COTTON);
+        assertThrows(IllegalArgumentException.class, () -> pantsBuilder.build(), "Size was never set. Use addSize() before build()");
     }
 
     @Test
-    void createProduct() {
+    void createProductShouldReturnNewPants() {
+        Product newProduct = pantsBuilder.createProduct();
+        assertInstanceOf(Pants.class, newProduct);
+    }
+
+    @Test
+    void createProductShouldNotReturnNull(){
+        Product newProduct = pantsBuilder.createProduct();
+        assertNotNull(newProduct);
+    }
+
+    @Test
+    void createProductShouldNotReturnOtherProductTypes(){
+        Product newProduct = pantsBuilder.createProduct();
+        assertFalse(newProduct instanceof Skirt || newProduct instanceof TShirt);
+    }
+
+    @Test
+    void getProductShouldReturnPants(){
+        assertInstanceOf(Pants.class, pantsBuilder.getProduct());
+    }
+
+    @Test
+    void getProductShouldNotReturnNull(){
+        assertNotNull(pantsBuilder.getProduct());
     }
 }
