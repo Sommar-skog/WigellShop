@@ -22,18 +22,13 @@ public class SewingProcessingPipeline {
         pipeline.put(command, specification);
     }
 
-    public Product execute(Product product) {
-        Product oldProduct = product;
+    public void execute(Product product) {
         Product result = product;
         for (Map.Entry<SewingProcessingCommand, ProductSpecification> entry : pipeline.entrySet()) {
             result = entry.getKey().process(result, entry.getValue());
         }
 
         result.getNotifier().notifyObservers("Production of product finished", result.getName(), result.getId(), null, result);
-
-        return result;
     }
-
-
 
 }
