@@ -1,10 +1,8 @@
 package org.example.model.businessobject;
 
 import org.example.model.businessobject.order.Order;
-import org.example.model.businessobject.product.Product;
 
 import java.util.Date;
-import java.util.List;
 
 public class Receipt extends Businessobjekt {
 

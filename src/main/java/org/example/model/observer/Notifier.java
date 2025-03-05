@@ -15,7 +15,7 @@ public class Notifier {
     private static Notifier instance;
 
     private Notifier() {
-        observers = new ArrayList<Businessobjekt>();
+        observers = new ArrayList<>();
         support = new PropertyChangeSupport(this);
     }
 
