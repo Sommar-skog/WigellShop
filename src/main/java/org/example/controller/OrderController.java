@@ -4,7 +4,6 @@ package org.example.controller;
 import org.example.model.businessobject.order.Order;
 import org.example.model.businessobject.order.OrderItem;
 import org.example.model.businessobject.product.Pants;
-import org.example.model.businessobject.product.Product;
 import org.example.model.businessobject.product.Skirt;
 import org.example.model.businessobject.product.TShirt;
 import org.example.model.businessobject.product.builder.PantsBuilder;
@@ -106,24 +105,24 @@ public class OrderController {
                 case "Pants":
                     PantsBuilder pb = new PantsBuilder();
                     Pants p = (Pants) pb.addSize((ClothingSize) size).addColor((ClothingColor) color).addMaterial((ClothingMaterial) material).build();
-                    pipeline.addCommand(new FitCommand(), (PantsFit) customOption1);
-                    pipeline.addCommand(new LengthCommand(), (PantsLength) customOption2);
+                    pipeline.addCommand(new FitCommand(), customOption1);
+                    pipeline.addCommand(new LengthCommand(), customOption2);
                     pipeline.execute(p);
                     order.addProduct(p);
                     break;
                 case "TShirt":
                     TShirtBuilder tb = new TShirtBuilder();
                     TShirt t = (TShirt) tb.addSize((ClothingSize) size).addColor((ClothingColor) color).addMaterial((ClothingMaterial) material).build();
-                    pipeline.addCommand(new SleevesCommand(), (TShirtSleeves) customOption1);
-                    pipeline.addCommand(new NeckCommand(), (TShirtNeck) customOption2);
+                    pipeline.addCommand(new SleevesCommand(), customOption1);
+                    pipeline.addCommand(new NeckCommand(), customOption2);
                     pipeline.execute(t);
                     order.addProduct(t);
                     break;
                 case "Skirt":
                     SkirtBuilder sb = new SkirtBuilder();
                     Skirt s = (Skirt) sb.addSize((ClothingSize) size).addColor((ClothingColor) color).addMaterial((ClothingMaterial) material).build();
-                    pipeline.addCommand(new WaistlineCommand(), (SkirtWaistline) customOption1);
-                    pipeline.addCommand(new PatternCommand(), (SkirtPattern) customOption2);
+                    pipeline.addCommand(new WaistlineCommand(), customOption1);
+                    pipeline.addCommand(new PatternCommand(), customOption2);
                     pipeline.execute(s);
                     order.addProduct(s);
                     break;
@@ -143,9 +142,5 @@ public class OrderController {
 
         OrderItem orderItem = new OrderItem(type,specificationList);
         OrderService.getInstance().addItemToOrderList(orderItem);
-    }
-
-    public OrderView getOrderView() {
-        return orderView;
     }
 }
