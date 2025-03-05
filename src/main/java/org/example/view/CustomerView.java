@@ -26,11 +26,11 @@ public class CustomerView {
         System.out.println();
 
         System.out.println("Add new customer:");
-        System.out.println("Enter name: ");
+        System.out.print("Enter name: ");
         String name = INPUT.nextLine();
-        System.out.println("Enter address: ");
+        System.out.print("Enter address: ");
         String address = INPUT.nextLine();
-        System.out.println("Enter mail: ");
+        System.out.print("Enter mail: ");
         String mail = INPUT.nextLine();
 
         List<String> result = new ArrayList<>();

@@ -76,6 +76,7 @@ public class MenuView {
             System.out.print("Would you like to start a new session or exit? (1) Start Over, (2) Exit Program: ");
             try {
                 int choice = INPUT.nextInt();
+
                 if (choice == 1 || choice == 2) {
                     if (choice == 2) {
                         result = true;
@@ -85,6 +86,7 @@ public class MenuView {
                     System.out.println("Please enter a valid option! (1 or 2)");
                 }
             } catch (Exception e) {
+                INPUT.nextLine();
                 System.out.println("Please enter a valid option (1 or 2)");
             }
         }
