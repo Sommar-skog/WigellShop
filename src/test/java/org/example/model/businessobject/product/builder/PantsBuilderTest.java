@@ -31,8 +31,6 @@ class PantsBuilderTest {
         assertThrows(IllegalArgumentException.class, () -> pantsBuilder.addSize(null));
     }
 
-
-
     @Test
     void addMaterialShouldSetMaterialWhenValidMaterialProvided() {
         ClothingMaterial material = ClothingMaterial.COTTON;
@@ -64,13 +62,44 @@ class PantsBuilderTest {
         pantsBuilder.addColor(ClothingColor.BLACK);
 
         Product result = pantsBuilder.build();
+        Pants pants = (Pants) result;
 
+        assertEquals(ClothingSize.SMALL, pants.getSize());
+        assertEquals(ClothingColor.BLACK,  pants.getColor());
+        assertEquals(ClothingMaterial.COTTON, pants.getMaterial());
+    }
+
+    @Test
+    void buildShouldReturnPants(){
+        pantsBuilder.addSize(ClothingSize.SMALL);
+        pantsBuilder.addMaterial(ClothingMaterial.COTTON);
+        pantsBuilder.addColor(ClothingColor.BLACK);
+
+        Product result = pantsBuilder.build();
+        assertInstanceOf(Pants.class, result);
+    }
+
+    @Test
+    void buildShouldNotReturnNull(){
+        pantsBuilder.addSize(ClothingSize.SMALL);
+        pantsBuilder.addMaterial(ClothingMaterial.COTTON);
+        pantsBuilder.addColor(ClothingColor.BLACK);
+        Product result = pantsBuilder.build();
         assertNotNull(result);
-        assertTrue(result instanceof Pants);
-        assertEquals(ClothingSize.SMALL, result.getSize());
-        assertEquals(ClothingColor.BLACK, result.getColor());
-        assertEquals(ClothingMaterial.COTTON, result.getMaterial());
+    }
 
+    @Test
+    void buildShouldTrowExceptionWhenAAddColorIsNotCalled() {
+
+    }
+
+    @Test
+    void buildShouldTrowExceptionWhenAAddMaterialIsNotCalled() {
+
+    }
+
+    @Test
+    void buildShouldTrowExceptionWhenAAddSizeIsNotCalled() {
 
     }
 
