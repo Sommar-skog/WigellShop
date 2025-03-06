@@ -2,7 +2,6 @@ package org.example.view;
 
 
 import org.example.model.businessobject.order.OrderItem;
-import org.example.model.businessobject.product.enums.ClothingSize;
 import org.example.model.businessobject.product.enums.ProductSpecification;
 
 import java.util.Arrays;
@@ -25,16 +24,21 @@ public class ProductView {
         System.out.println("Overview of your chosen products: ");
         System.out.println();
         for (OrderItem item : items) {
-            System.out.print(item.getProductType() + "[");
-            for (ProductSpecification ps : item.getSpecificationList()){
-                System.out.print(ps + ", ");
+            System.out.print(item.getProductType() + " [");
+
+            List<ProductSpecification> spec = item.getSpecificationList();
+
+            for (int i = 0; i < spec.size(); i++) {
+                System.out.print(spec.get(i));
+                if (i < spec.size() - 1) {
+                    System.out.print(", ");
+                }
+
             }
             System.out.println("]");
         }
         System.out.println();
         ORDER_VIEW.printPlacingOrderNow();
-
-
     }
 
     public boolean printOrderMoreProductsQuestion(){
