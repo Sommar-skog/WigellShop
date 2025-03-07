@@ -37,8 +37,8 @@ public class OrderController {
 
 
     public void order(){
-        System.out.println("            - - - ORDER - - -");
-        System.out.println();
+        orderView.printOrderTitle();
+
         boolean readyForProduction = false;
         while(!readyForProduction) {
             int choice = menuView.printProductChoice();
@@ -84,8 +84,6 @@ public class OrderController {
         placeOrder(OrderService.getInstance().getItemsToOrderList());
         OrderService.getInstance().removeAllItemsFromOrderList();
         orderView.printOrderReadyNow();
-
-
     }
 
     private void placeOrder(List<OrderItem> orderItems){
@@ -127,9 +125,7 @@ public class OrderController {
                     order.addProduct(s);
                     break;
             }
-
         }
-
     }
 
     public void holdProductUntilOrder(String type ,ProductSpecification size, ProductSpecification material, ProductSpecification color, ProductSpecification customOption1, ProductSpecification customOption2 ){
@@ -148,19 +144,7 @@ public class OrderController {
         return order;
     }
 
-    public MainController getMainController() {
-        return mainController;
-    }
-
-    public MenuView getMenuView() {
-        return menuView;
-    }
-
     public OrderView getOrderView() {
         return orderView;
-    }
-
-    public ProductView getProductView() {
-        return productView;
     }
 }

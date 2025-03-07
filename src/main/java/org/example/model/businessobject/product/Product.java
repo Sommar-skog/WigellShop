@@ -10,8 +10,8 @@ public abstract class Product extends Businessobjekt {
     private ClothingSize clothingSize;
     private ClothingColor clothingColor;
     private ClothingMaterial clothingMaterial;
-    protected double price;
-    protected final Notifier notifier = Notifier.getInstance();
+    protected double price; //sätts i subklasserna, därför protected
+    private final Notifier notifier = Notifier.getInstance();
 
     public Product() {
         super();

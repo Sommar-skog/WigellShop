@@ -28,6 +28,7 @@ public class CustomerController {
 
     public void customer(){
         customerView.printCustomerTitle();
+
         int choice = menuView.printCustomerMeny();
 
         if(choice == 1){

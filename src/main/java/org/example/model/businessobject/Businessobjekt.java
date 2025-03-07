@@ -4,7 +4,7 @@ import org.example.model.singleton.Id;
 
 public abstract class Businessobjekt {
 
-    private Long id;
+    private final Long id; //Ingen sätter för id eftersom final, och ska inte kunna ändras.
     protected String name;
 
     public Businessobjekt() {
@@ -18,10 +18,6 @@ public abstract class Businessobjekt {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) { //ID, ska inte kunna sättas på annat sätt än via getnext();
-        this.id = id;
     }
 
     public String getName() {

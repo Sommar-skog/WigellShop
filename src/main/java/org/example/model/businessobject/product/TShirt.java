@@ -12,7 +12,7 @@ public class TShirt extends Product {
         super();
         this.price = 499.90;
         this.name = "T-Shirt";
-        notifier.notifyObservers("Start Production of new Product",name,getId(),null,this);
+        getNotifier().notifyObservers("Start Production of new Product",name,getId(),null,this);
     }
 
     public TShirtSleeves getSleeves() {

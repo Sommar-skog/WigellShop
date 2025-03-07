@@ -7,6 +7,8 @@ import org.example.model.businessobject.product.enums.ProductSpecification;
 
 public class FitCommand implements SewingProcessingCommand {
 
+    public FitCommand() {
+    }
 
     @Override
     public Product process(Product product, ProductSpecification productSpecification) {

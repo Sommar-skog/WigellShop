@@ -10,6 +10,10 @@ public class Receipt extends Businessobjekt {
     private Order order;
     private Customer customer;
 
+    public Receipt() {
+        super();
+    }
+
     public Receipt(String name, Customer customer, Order order ) {
         super(name);
         this.customer = customer;
@@ -39,5 +43,14 @@ public class Receipt extends Businessobjekt {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "date=" + date +
+                ", order=" + order +
+                ", customer=" + customer +
+                "} " + super.toString();
     }
 }

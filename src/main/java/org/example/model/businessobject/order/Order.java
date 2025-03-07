@@ -10,6 +10,10 @@ public class Order extends Businessobjekt {
 
     private List<Product> productList;
 
+    public Order() {
+        super();
+    }
+
     public Order(String name) {
         super(name);
         productList = new ArrayList<>();
@@ -29,5 +33,12 @@ public class Order extends Businessobjekt {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "productList=" + productList +
+                "} " + super.toString();
     }
 }

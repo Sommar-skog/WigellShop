@@ -7,6 +7,9 @@ import org.example.model.businessobject.product.enums.SkirtPattern;
 
 public class PatternCommand implements SewingProcessingCommand {
 
+    public PatternCommand() {
+    }
+
     @Override
     public Product process(Product product, ProductSpecification productSpecification) {
         if (product instanceof Skirt){

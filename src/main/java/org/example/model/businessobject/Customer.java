@@ -8,6 +8,10 @@ public class Customer extends Businessobjekt {
     private String mail;
     private Order order;
 
+    public Customer() {
+        super();
+    }
+
     public Customer(String name, String address, String mail) {
         super(name);
         this.address = address;

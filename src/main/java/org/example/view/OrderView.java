@@ -6,6 +6,12 @@ public class OrderView {
 
     }
 
+    public void printOrderTitle(){
+        System.out.println("\n\n");
+        System.out.println("            - - - ORDER - - -");
+        System.out.println();
+    }
+
     public void printPlacingOrderNow(){
         System.out.println("Placing order now...");
         try {

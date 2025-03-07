@@ -10,6 +10,10 @@ public class SewingProcessingPipeline {
 
     Map<SewingProcessingCommand, ProductSpecification> pipeline = new HashMap<>();
 
+    public SewingProcessingPipeline() {
+
+    }
+
     public void addCommand(SewingProcessingCommand command, ProductSpecification specification) {
         pipeline.put(command, specification);
     }

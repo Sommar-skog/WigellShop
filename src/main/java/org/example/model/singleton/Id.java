@@ -5,7 +5,8 @@ import org.example.model.businessobject.order.Order;
 import org.example.model.businessobject.product.Product;
 
 public class Id {
-    //TODO Ska klassen göras trådsäker? i så fall syncronized och volotile
+
+    //Eftersom jag endast kör i en tråd gör jag singleton inte trådsäker i dagsläget
 
     private long CustomerId = 0;
     private long ProductId = 0;

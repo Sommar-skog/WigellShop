@@ -11,7 +11,7 @@ public class Pants extends Product{
         super();
         this.price = 899.90;
         this.name = "Pants";
-        notifier.notifyObservers("Start Production of new Product", name,getId(),null,this);
+        getNotifier().notifyObservers("Start Production of new Product", name,getId(),null,this);
     }
 
     public PantsFit getFit() {

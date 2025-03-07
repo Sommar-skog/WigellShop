@@ -6,6 +6,10 @@ import org.example.model.businessobject.product.enums.ProductSpecification;
 import org.example.model.businessobject.product.enums.TShirtSleeves;
 
 public class SleevesCommand implements SewingProcessingCommand{
+
+    public SleevesCommand() {
+    }
+
     @Override
     public Product process(Product product, ProductSpecification productSpecification) {
         if (product instanceof TShirt){
