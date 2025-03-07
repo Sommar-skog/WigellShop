@@ -10,8 +10,6 @@ import org.example.view.*;
 public class MainController {
 
     private final MenuView menuView = new MenuView();
-
-    private final CEOController ceoController = new CEOController(this); // Ta bort?
     private final CustomerController customerController = new CustomerController(this);
     private final ProductController productController = new ProductController(this);
     private final OrderController orderController = new OrderController(this);
@@ -68,6 +66,10 @@ public class MainController {
 
     public ProductController getProductController() {
         return productController;
+    }
+
+    public OrderController getOrderController() {
+        return orderController;
     }
 
     public Customer getCustomerShopping() {

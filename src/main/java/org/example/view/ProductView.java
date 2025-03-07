@@ -11,12 +11,13 @@ import java.util.stream.Collectors;
 
 public class ProductView {
 
-    private final Scanner INPUT = new Scanner(System.in);
-    private final OrderView ORDER_VIEW = new OrderView();
+    private final Scanner input = new Scanner(System.in);
+    private final OrderView orderView;
+
+    public ProductView(OrderView orderView) {
+        this.orderView = orderView;
 
 
-    public void printProduct(String product) { //skicka in .toString
-        System.out.println(product);
     }
 
     public void printProductOverViewBeforeProduction(List<OrderItem> items) {
@@ -38,14 +39,14 @@ public class ProductView {
             System.out.println("]");
         }
         System.out.println();
-        ORDER_VIEW.printPlacingOrderNow();
+        orderView.printPlacingOrderNow();
     }
 
     public boolean printOrderMoreProductsQuestion(){
         System.out.println();
         while (true) {
             System.out.print("Would you like to add one more product to your order before production? (Y/N): ");
-            String answer = INPUT.nextLine().toLowerCase().trim();
+            String answer = input.nextLine().toLowerCase().trim();
             if (answer.equals("y")) {
                 return false;
             } else if (answer.equals("n")) {
@@ -55,7 +56,6 @@ public class ProductView {
             }
         }
     }
-
 
     public ProductSpecification printProductOptionsMenu(ProductSpecification[] productSpecification) {
         List<String> options = convertEnumValuesToStringValues(productSpecification);
@@ -72,8 +72,8 @@ public class ProductView {
             }
             System.out.print("Choose an option (integer): ");
             try {
-                option = INPUT.nextInt();
-                INPUT.nextLine();
+                option = input.nextInt();
+                input.nextLine();
                 if (option > 0 && option <= options.size()){
                     validOption = true;
                     productSpec = productSpecification[option - 1];
@@ -82,7 +82,7 @@ public class ProductView {
                 }
 
             } catch (Exception e) {
-                INPUT.nextLine();
+                input.nextLine();
                 System.out.println("Invalid input, try again");
             }
         }

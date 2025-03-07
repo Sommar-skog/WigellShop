@@ -14,6 +14,7 @@ public class OrderService {
     private OrderService() {
         itemsToOrder = new ArrayList<>();
     }
+
     public static OrderService getInstance() {
         if (instance == null) {
             instance = new OrderService();

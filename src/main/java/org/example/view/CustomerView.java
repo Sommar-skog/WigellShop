@@ -6,7 +6,10 @@ import java.util.Scanner;
 
 public class CustomerView {
 
-    private final Scanner INPUT = new Scanner(System.in);
+    private final Scanner input = new Scanner(System.in);
+
+    public CustomerView() {
+    }
 
     public void printCustomerTitle() {
         System.out.println("\n\n");
@@ -27,11 +30,11 @@ public class CustomerView {
 
         System.out.println("Add new customer:");
         System.out.print("Enter name: ");
-        String name = INPUT.nextLine();
+        String name = input.nextLine();
         System.out.print("Enter address: ");
-        String address = INPUT.nextLine();
+        String address = input.nextLine();
         System.out.print("Enter mail: ");
-        String mail = INPUT.nextLine();
+        String mail = input.nextLine();
 
         List<String> result = new ArrayList<>();
         result.add(name);
@@ -55,11 +58,11 @@ public class CustomerView {
         while (!found) {
             System.out.print("Enter choice: ");
             try {
-                choice = INPUT.nextInt();
-                INPUT.nextLine();
+                choice = input.nextInt();
+                input.nextLine();
             } catch (Exception e) {
                 System.out.println("Invalid choice");
-                INPUT.nextLine();
+                input.nextLine();
             }
             if (choice > 0 && choice <= customers.size()) {
                 found = true;

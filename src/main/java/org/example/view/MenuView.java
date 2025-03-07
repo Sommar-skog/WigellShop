@@ -5,7 +5,10 @@ import java.util.Scanner;
 
 public class MenuView {
 
-    private final Scanner INPUT = new Scanner(System.in);
+    private final Scanner input = new Scanner(System.in);
+
+    public MenuView() {
+    }
 
     public void printWelcomeMessage() {
         System.out.println();
@@ -21,8 +24,8 @@ public class MenuView {
                     "2. Shop as an Existing Customer");
             System.out.print("Choose an option (1 or 2): ");
             try{
-                choice = INPUT.nextInt();
-                INPUT.nextLine();
+                choice = input.nextInt();
+                input.nextLine();
                 if (choice == 1 || choice == 2) {
                     validChoice = true;
                 } else {
@@ -30,7 +33,7 @@ public class MenuView {
                 }
 
             }catch(Exception e) {
-                INPUT.nextLine();
+                input.nextLine();
                 System.out.println("Please enter a valid option! (1 or 2)");
             }
 
@@ -52,14 +55,14 @@ public class MenuView {
                     "\n3. A Skirt");
             System.out.print("Choose an option (1, 2 or 3): ");
             try{
-                choice = INPUT.nextInt();
+                choice = input.nextInt();
                 if (choice == 1 || choice == 2 || choice == 3) {
                     validChoice = true;
                 } else {
                     System.out.println("Please enter a valid option! (1, 2 or 3)");
                 }
             } catch (Exception e){
-                INPUT.nextLine();
+                input.nextLine();
                 System.out.println("Please enter a valid option! (1,2 or 3)");
             }
         }
@@ -75,7 +78,7 @@ public class MenuView {
         while (!validChoice) {
             System.out.print("Would you like to start a new session or exit? (1) Start Over, (2) Exit Program: ");
             try {
-                int choice = INPUT.nextInt();
+                int choice = input.nextInt();
 
                 if (choice == 1 || choice == 2) {
                     if (choice == 2) {
@@ -86,7 +89,7 @@ public class MenuView {
                     System.out.println("Please enter a valid option! (1 or 2)");
                 }
             } catch (Exception e) {
-                INPUT.nextLine();
+                input.nextLine();
                 System.out.println("Please enter a valid option (1 or 2)");
             }
         }

@@ -143,4 +143,24 @@ public class OrderController {
         OrderItem orderItem = new OrderItem(type,specificationList);
         OrderService.getInstance().addItemToOrderList(orderItem);
     }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public MainController getMainController() {
+        return mainController;
+    }
+
+    public MenuView getMenuView() {
+        return menuView;
+    }
+
+    public OrderView getOrderView() {
+        return orderView;
+    }
+
+    public ProductView getProductView() {
+        return productView;
+    }
 }

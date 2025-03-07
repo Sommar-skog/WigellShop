@@ -13,7 +13,7 @@ public class ProductController {
 
     public ProductController(MainController mainController) {
         this.mainController = mainController;
-        productView = new ProductView();
+        productView = new ProductView(mainController.getOrderController().getOrderView());
     }
 
     public List<String> getProductListAsString(List<Product> productList) {
