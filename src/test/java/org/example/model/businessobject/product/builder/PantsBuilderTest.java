@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PantsBuilderTest {
 
-    PantsBuilder pantsBuilder;
+    private PantsBuilder pantsBuilder;
 
     @BeforeEach
     void setUp() {
