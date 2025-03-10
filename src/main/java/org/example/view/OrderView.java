@@ -14,8 +14,10 @@ public class OrderView {
 
     public void printPlacingOrderNow(){
         System.out.println("Placing order now...");
+
+        //Simulering av att det tar lite tid att lägga beställningen
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -24,8 +26,10 @@ public class OrderView {
 
     public void printOrderReadyNow(){
         System.out.println();
+
+        //Simulering att det tar lite tid att färdigställa beställningen
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
