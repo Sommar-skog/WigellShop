@@ -10,9 +10,9 @@ import org.example.view.*;
 public class MainController {
 
     private final MenuView menuView = new MenuView();
-    private final CustomerController customerController = new CustomerController(this);
     private final ProductController productController = new ProductController(this);
     private final OrderController orderController = new OrderController(this);
+    private final CustomerController customerController = new CustomerController(this);
     private final ReceiptController receiptController = new ReceiptController(this);
 
     private Customer customerShopping;

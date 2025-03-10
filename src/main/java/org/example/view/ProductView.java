@@ -12,12 +12,10 @@ import java.util.stream.Collectors;
 public class ProductView {
 
     private final Scanner input = new Scanner(System.in);
-    private final OrderView orderView;
+    private  OrderView orderView;
 
-    public ProductView(OrderView orderView) {
-        this.orderView = orderView;
-
-
+    public ProductView() {
+        //this.orderView = orderView;
     }
 
     public void printProductOverViewBeforeProduction(List<OrderItem> items) {
@@ -91,5 +89,9 @@ public class ProductView {
 
     private List<String> convertEnumValuesToStringValues(ProductSpecification[] specifications) {
         return Arrays.stream(specifications).map(Object::toString).collect(Collectors.toList());
+    }
+
+    public void setOrderView(OrderView orderView) {
+        this.orderView = orderView;
     }
 }

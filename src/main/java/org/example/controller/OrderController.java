@@ -79,6 +79,7 @@ public class OrderController {
                 readyForProduction = true;
             }
         }
+        productView.setOrderView(orderView); //Set här för att undvika cirkulärt beroende vid instansiering.
         productView.printProductOverViewBeforeProduction(OrderService.getInstance().getItemsToOrderList());
 
         placeOrder(OrderService.getInstance().getItemsToOrderList());
